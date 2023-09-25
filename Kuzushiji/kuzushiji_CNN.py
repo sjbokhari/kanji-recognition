@@ -39,7 +39,7 @@ model = keras.Sequential([
 
 model.compile(optimizer='adam', loss="sparse_categorical_crossentropy", metrics=['accuracy'])
 
-model.fit_generator(datagen.flow(train_images,train_labels,shuffle=True),epochs=50,validation_data=(test_images,test_labels),callbacks = [keras.callbacks.EarlyStopping(patience=8,verbose=1,restore_best_weights=True),keras.callbacks.ReduceLROnPlateau(factor=0.5,patience=3,verbose=1)])
+model.fit(datagen.flow(train_images,train_labels,shuffle=True),epochs=50,validation_data=(test_images,test_labels),callbacks = [keras.callbacks.EarlyStopping(patience=8,verbose=1,restore_best_weights=True),keras.callbacks.ReduceLROnPlateau(factor=0.5,patience=3,verbose=1)])
 
 
 #test_loss, test_acc = model.evaluate(test_images2, test_labels)
